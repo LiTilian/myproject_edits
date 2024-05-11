@@ -9,6 +9,7 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
+<script src"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script>
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   
@@ -17,6 +18,11 @@
 
 {% load static %}
 <script src="{% static "js/page-template.js" %}"> </script>
-<script src=""></script>
+{% if auth %}
+    {% load static %}
+    <script src="{% static 'js/authorization_page.js' %}"></script>
+    {% load static %}
+    <script src="{% static 'js/authorization_script.js' %}"></script>
+{% endif %}
 </body>
 </html> 

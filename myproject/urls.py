@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from web_blog.views import index
+from web_blog.views import index as index
+from web_blog.views import auth as auth
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),  # Этот URL соответствует корневому URL
+    path('auth/', index), 
+    path('auth_cl_serv/', auth), 
 ]
