@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from web_blog.views import index as index
+from web_blog.views import profile as profile
 from web_blog.views import auth as auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', index), 
+    path("", profile),  
     path('auth_cl_serv/', auth), 
-]
+] 

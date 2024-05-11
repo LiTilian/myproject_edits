@@ -17,7 +17,7 @@ def init_db():
         text_post text,
         likes integer,
         author_id integer,
-        FOREING KEY (author_id) REFERENS users (id)
+        FOREIGN KEY (author_id) REFERENCES users (id)
     );
     """)
 
@@ -26,8 +26,8 @@ def init_db():
         id integer primary key,
         post_id integer,
         user_id integer,
-        FOREING KEY (post_id) REFERENS posts (id)
-        FOREING KEY (user_id) REFERENS users (id)
+        FOREIGN KEY (post_id) REFERENCES posts (id)
+        FOREIGN KEY (user_id) REFERENCES users (id)
     );
     """)
 
@@ -36,8 +36,17 @@ def init_db():
         id integer primary key,
         user_id integer,
         subs_id integer ,
-        FOREING KEY (subs_id) REFERENS users (id)
-        FOREING KEY (user_id) REFERENS users (id)
+        FOREIGN KEY (subs_id) REFERENCES users (id)
+        FOREIGN KEY (user_id) REFERENCES users (id)
     );
     """)    
 connect.close()
+
+def check_user(logiin, password):
+    connect = sqlite3.connect(database)
+    cursor = connect.cursor()
+    cursor.execute("SELECT * FROM users where login="+ login +"")
+    res = cursor.fetchall()
+    if res:
+        if res[0][2] == password:
+            return True
