@@ -55,9 +55,9 @@ var Log = function (_React$Component2) {
     key: "render",
     value: function render() {
       if (this.state.login) {
-        return React.createElement("div", { id: "log_user", classname: "log_in" });
+        return React.createElement("div", { id: "log_user", className: "log_in" });
       }
-      return React.createElement("div", { id: "log_user", classname: "log_in" });
+      return React.createElement("div", { id: "log_user", className: "log_in" });
     }
   }]);
 

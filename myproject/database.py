@@ -40,7 +40,7 @@ def init_db():
         FOREIGN KEY (user_id) REFERENCES users (id)
     );
     """)    
-connect.close()
+    connect.close()
 
 def check_user(logiin, password):
     connect = sqlite3.connect(database)
